@@ -267,6 +267,9 @@ def main():
     parser.add_argument("--type", default="report", choices=DOC_TYPES.keys(), help="문서 유형")
     parser.add_argument("--output", help="출력 파일 경로")
     parser.add_argument("--upload", action="store_true", help="Drive 업로드")
+    parser.add_argument("--email", action="store_true", help="이메일로 발송")
+    parser.add_argument("--whatsapp", action="store_true", help="WhatsApp 알림")
+    parser.add_argument("--send", action="store_true", help="이메일 + WhatsApp 모두 발송")
     args = parser.parse_args()
 
     if not API_KEY:
@@ -317,6 +320,42 @@ def main():
             print(f"  Drive: https://drive.google.com/file/d/{file_id}/view")
         except Exception as e:
             print(f"  [!] 업로드 실패: {e}")
+
+    # 4. 이메일 발송
+    if args.email or args.send:
+        print("\n[EMAIL] 이메일 발송 중...")
+        try:
+            from email_sender import send_email_with_attachment
+            course_name = COURSE_MAP.get(args.course, {}).get("ko", "") if args.course else ""
+            subject = f"[Smart Auto] {course_name} - {data.get('title', args.topic)}"
+            send_email_with_attachment(output_path, subject=subject)
+        except Exception as e:
+            print(f"  [!] 이메일 실패: {e}")
+
+    # 5. WhatsApp 알림
+    if args.whatsapp or args.send:
+        print("\n[WHATSAPP] WhatsApp 알림 발송 중...")
+        try:
+            import subprocess
+            target = os.getenv("WHATSAPP_TARGET", "")
+            course_name = COURSE_MAP.get(args.course, {}).get("ko", "") if args.course else ""
+            msg = (
+                f"문서 생성 완료!\n"
+                f"제목: {data.get('title', args.topic)}\n"
+                f"과목: {course_name}\n"
+                f"유형: {DOC_TYPES[args.type]}\n"
+                f"파일: {output_path.name}\n"
+                f"이메일로도 보냈어요!"
+            )
+            subprocess.run(
+                ["wsl", "bash", "-c",
+                 f'npx openclaw message send --channel whatsapp '
+                 f'--target "{target}" --message "{msg}" --json'],
+                capture_output=True, timeout=30,
+            )
+            print("  WhatsApp 알림 발송 완료!")
+        except Exception as e:
+            print(f"  [!] WhatsApp 실패: {e}")
 
     print(f"\n{'='*50}")
     print(f"[DONE] 문서 생성 완료!")
