@@ -1,0 +1,51 @@
+# ========================================
+# Credentials & Secrets (NEVER commit!)
+# ========================================
+config/.env
+*.env
+!config/.env.example
+config/client_secret.json
+config/drive_token.json
+config/*token*.json
+config/*secret*.json
+config/*credential*.json
+
+# ========================================
+# Personal Data (local only)
+# ========================================
+data/courses/
+data/study_notes/
+data/materials/
+data/recordings/
+data/*.png
+data/scrape_summary.json
+data/courses_found.json
+
+# Recording files (browser recordings with personal URLs)
+portal.hanyang*.json
+
+# ========================================
+# Python
+# ========================================
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# ========================================
+# IDE & OS
+# ========================================
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+.DS_Store
+
+# ========================================
+# Debug scripts (personal login debugging)
+# ========================================
+scrapers/debug_*.py

@@ -1,0 +1,87 @@
+{
+  "semester": "2026년 1학기",
+  "lms_base_url": "https://learning.hanyang.ac.kr",
+  "portal_url": "https://portal.hanyang.ac.kr/port.do",
+  "menu_tools": {
+    "syllabus": "/assignments/syllabus",
+    "board": "/external_tools/132",
+    "weekly": "/external_tools/140",
+    "materials": "/external_tools/3",
+    "attendance": "/external_tools/138"
+  },
+  "courses": [
+    {
+      "code": "202610HY68000",
+      "name_ko": "경영통계학",
+      "name_en": "Business Statistics",
+      "name_zh": "經營統計學",
+      "professor": "부제만",
+      "course_id": 196594,
+      "lms_url": "https://learning.hanyang.ac.kr/courses/196594",
+      "textbook": "프린트물",
+      "sub_textbook": "자료제공",
+      "grading": {
+        "attendance": 20,
+        "team_project": 20,
+        "final": 60
+      },
+      "schedule": {
+        "day": "토",
+        "day_en": "Saturday",
+        "time": "13:00-16:00",
+        "room": "경영관 103"
+      }
+    },
+    {
+      "code": "202610HY68004",
+      "name_ko": "상법및계약법",
+      "name_en": "Commercial Law and Contract Law",
+      "name_zh": "商法及契約法",
+      "professor": "강편모",
+      "course_id": 196600,
+      "lms_url": "https://learning.hanyang.ac.kr/courses/196600",
+      "textbook": "",
+      "grading": {},
+      "schedule": {
+        "day": "토",
+        "day_en": "Saturday",
+        "time": "09:00-12:00",
+        "room": "경영관 203"
+      }
+    },
+    {
+      "code": "202610HY68072",
+      "name_ko": "M&A전략:계획수립과실행",
+      "name_en": "M&A Strategy: Planning and Execution",
+      "name_zh": "M&A戰略：計劃制定與執行",
+      "professor": "김철중",
+      "course_id": 196656,
+      "lms_url": "https://learning.hanyang.ac.kr/courses/196656",
+      "textbook": "",
+      "grading": {},
+      "schedule": {
+        "day": "화",
+        "day_en": "Tuesday",
+        "time": "19:00-22:00",
+        "room": "경영관 201"
+      }
+    },
+    {
+      "code": "202610HY68077",
+      "name_ko": "국제거시금융론",
+      "name_en": "International Macrofinance",
+      "name_zh": "國際宏觀金融論",
+      "professor": "이창민",
+      "course_id": 196622,
+      "lms_url": "https://learning.hanyang.ac.kr/courses/196622",
+      "textbook": "",
+      "grading": {},
+      "schedule": {
+        "day": "토",
+        "day_en": "Saturday",
+        "time": "16:00-19:00",
+        "room": "경영관 203"
+      }
+    }
+  ]
+}
